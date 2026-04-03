@@ -6,19 +6,108 @@
     <title>The Cricketing Shots - Live Cricket Scores</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary-black: #0a0c0f;
+            --secondary-black: #1a1e24;
+            --pure-black: #000000;
+            --premium-gold: #d4af37;
+            --gold-gradient: linear-gradient(135deg, #d4af37, #b8860b);
+            --text-light: #ffffff;
+            --text-dim: #e0e0e0;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary-black);
+            color: var(--text-dim);
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header {
+            background: var(--pure-black);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--premium-gold);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background: var(--pure-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--premium-gold);
+            border: 2px solid var(--premium-gold);
+        }
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo span {
+            color: var(--premium-gold);
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        .nav-menu a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+        .nav-menu a:hover {
+            color: var(--premium-gold);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--premium-gold);
+        }
         .hero {
             background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             padding: 100px 0;
             text-align: center;
-            border-bottom: 1px solid var(--premium-gold);
         }
         .hero-content h2 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 20px;
-            font-weight: 800;
             color: var(--text-light);
         }
         .hero-content span {
@@ -27,7 +116,7 @@
             -webkit-text-fill-color: transparent;
         }
         .hero-content p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 30px;
         }
         .cta-btn {
@@ -38,11 +127,6 @@
             border-radius: 40px;
             text-decoration: none;
             font-weight: 700;
-            transition: var(--transition);
-        }
-        .cta-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px var(--premium-gold);
         }
         .live-ticker {
             background: var(--secondary-black);
@@ -62,7 +146,6 @@
             padding: 5px 20px;
             border-radius: 25px;
             font-weight: 700;
-            animation: pulse 2s infinite;
             white-space: nowrap;
         }
         .ticker-content {
@@ -82,6 +165,11 @@
             color: var(--premium-gold);
             margin: 0 10px;
         }
+        .section-title {
+            font-size: 2rem;
+            margin: 40px 0 20px;
+            color: var(--text-light);
+        }
         .featured-match {
             background: var(--secondary-black);
             border-radius: var(--border-radius);
@@ -99,24 +187,24 @@
             flex: 1;
         }
         .team-logo {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             background: var(--pure-black);
             border-radius: 50%;
             margin: 0 auto 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             border: 3px solid var(--premium-gold);
             color: var(--premium-gold);
         }
         .team-name {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--text-light);
         }
         .team-score {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             margin-top: 10px;
             background: var(--gold-gradient);
@@ -124,12 +212,12 @@
             -webkit-text-fill-color: transparent;
         }
         .vs {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            padding: 0 40px;
+            padding: 0 30px;
         }
         .match-status {
             background: var(--gold-gradient);
@@ -140,9 +228,225 @@
             font-weight: 700;
             margin-top: 20px;
         }
-        .match-venue {
+        .matches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .match-card, .player-card, .series-card {
+            background: var(--secondary-black);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .match-card:hover, .player-card:hover, .series-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--premium-gold);
+        }
+        .match-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .match-type {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--premium-gold);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        .team-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .team-row i {
+            color: var(--premium-gold);
+            margin-right: 8px;
+        }
+        .points-container {
+            background: var(--secondary-black);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        .points-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .points-table th {
+            background: var(--pure-black);
+            color: var(--premium-gold);
+            padding: 12px;
+            text-align: left;
+        }
+        .points-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .news-list {
+            background: var(--secondary-black);
+            border-radius: var(--border-radius);
+            padding: 20px;
+        }
+        .news-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            cursor: pointer;
+        }
+        .news-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid var(--premium-gold);
+        }
+        .news-content h4 {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+        .news-meta {
+            font-size: 0.7rem;
+            color: var(--premium-gold);
+            margin-top: 5px;
+        }
+        .player-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--premium-gold);
+        }
+        .player-name {
+            padding: 12px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        .player-role {
+            color: var(--premium-gold);
+            padding: 0 12px 12px;
+            font-size: 0.85rem;
+        }
+        .view-all-link {
+            display: inline-block;
             margin-top: 15px;
+            color: var(--premium-gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .footer {
+            background: var(--pure-black);
+            padding: 50px 0 20px;
+            margin-top: 50px;
+            border-top: 2px solid var(--premium-gold);
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .footer-logo-img {
+            width: 70px;
+            height: 70px;
+            background: var(--pure-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--premium-gold);
+            border: 2px solid var(--premium-gold);
+        }
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .footer-column h4 {
+            color: var(--premium-gold);
+            margin-bottom: 15px;
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+        .footer-column a {
             color: var(--text-dim);
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            color: var(--premium-gold);
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        .social-links a {
+            width: 35px;
+            height: 35px;
+            background: var(--secondary-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--premium-gold);
+            border: 1px solid var(--premium-gold);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            font-size: 0.8rem;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--pure-black);
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+            .nav-menu.active { display: flex; }
+            .hamburger { display: flex; }
+            .two-column { grid-template-columns: 1fr; }
+            .match-teams { flex-direction: column; }
+            .vs { padding: 10px 0; }
+            .hero-content h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -187,9 +491,9 @@
                 <div class="ticker-label"><i class="fas fa-circle"></i> LIVE</div>
                 <div class="ticker-content">
                     <div class="ticker-items">
-                        <span class="ticker-item">India vs Australia <span>•</span> 285/7 - 249/5</span>
-                        <span class="ticker-item">England vs South Africa <span>•</span> 180/5 - 120/3</span>
-                        <span class="ticker-item">Pakistan vs New Zealand <span>•</span> 345/8 - 289</span>
+                        <span class="ticker-item">🏏 India vs Australia <span>•</span> 285/7 - 249/5</span>
+                        <span class="ticker-item">🏏 England vs South Africa <span>•</span> 180/5 - 120/3</span>
+                        <span class="ticker-item">🏏 Pakistan vs New Zealand <span>•</span> 345/8 - 289</span>
                     </div>
                 </div>
             </div>
@@ -214,7 +518,7 @@
                     </div>
                 </div>
                 <div class="match-status">🔴 LIVE NOW - Australia need 37 runs in 52 balls</div>
-                <div class="match-venue">Wankhede Stadium, Mumbai</div>
+                <div class="match-venue">📍 Wankhede Stadium, Mumbai</div>
             </div>
         </section>
 
@@ -225,10 +529,10 @@
                     <table class="points-table">
                         <thead><tr><th>Team</th><th>P</th><th>W</th><th>L</th><th>Pts</th></tr></thead>
                         <tbody>
-                            <tr><td><span class="team-rank">1</span> India</td><td>5</td><td>4</td><td>1</td><td><strong>8</strong></td></tr>
-                            <tr><td><span class="team-rank">2</span> Australia</td><td>5</td><td>3</td><td>2</td><td><strong>6</strong></td></tr>
-                            <tr><td><span class="team-rank">3</span> England</td><td>5</td><td>3</td><td>2</td><td><strong>6</strong></td></tr>
-                            <tr><td><span class="team-rank">4</span> South Africa</td><td>5</td><td>2</td><td>3</td><td><strong>4</strong></td></tr>
+                            <tr><td>🇮🇳 India</td><td>5</td><td>4</td><td>1</td><td><strong>8</strong></td></tr>
+                            <tr><td>🇦🇺 Australia</td><td>5</td><td>3</td><td>2</td><td><strong>6</strong></td></tr>
+                            <tr><td>🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</td><td>5</td><td>3</td><td>2</td><td><strong>6</strong></td></tr>
+                            <tr><td>🇿🇦 South Africa</td><td>5</td><td>2</td><td>3</td><td><strong>4</strong></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -242,21 +546,21 @@
                         <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=100" class="news-image">
                         <div class="news-content">
                             <h4>India Announces Squad for Champions Trophy 2025</h4>
-                            <div class="news-meta"><span><i class="far fa-clock"></i> 2 hours ago</span></div>
+                            <div class="news-meta"><i class="far fa-clock"></i> 2 hours ago</div>
                         </div>
                     </div>
                     <div class="news-item" onclick="location.href='news.html'">
                         <img src="https://images.unsplash.com/photo-1624526267942-8395f564e432?w=100" class="news-image">
                         <div class="news-content">
-                            <h4>Kohli Returns to Form with Century</h4>
-                            <div class="news-meta"><span><i class="far fa-clock"></i> 5 hours ago</span></div>
+                            <h4>Kohli Returns to Form with Spectacular Century</h4>
+                            <div class="news-meta"><i class="far fa-clock"></i> 5 hours ago</div>
                         </div>
                     </div>
                     <div class="news-item" onclick="location.href='news.html'">
                         <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=100" class="news-image">
                         <div class="news-content">
                             <h4>IPL 2026 Auction Date Announced</h4>
-                            <div class="news-meta"><span><i class="far fa-clock"></i> 1 day ago</span></div>
+                            <div class="news-meta"><i class="far fa-clock"></i> 1 day ago</div>
                         </div>
                     </div>
                 </div>
@@ -270,22 +574,22 @@
                 <div class="player-card" onclick="location.href='players.html'">
                     <img src="https://images.unsplash.com/photo-1624526267942-8395f564e432?w=300" class="player-image">
                     <div class="player-name">Virat Kohli</div>
-                    <div class="player-role">Batsman • India</div>
+                    <div class="player-role">🇮🇳 Batsman</div>
                 </div>
                 <div class="player-card" onclick="location.href='players.html'">
                     <img src="https://images.unsplash.com/photo-1624526267942-8395f564e432?w=300" class="player-image">
                     <div class="player-name">Pat Cummins</div>
-                    <div class="player-role">Bowler • Australia</div>
+                    <div class="player-role">🇦🇺 Bowler</div>
                 </div>
                 <div class="player-card" onclick="location.href='players.html'">
                     <img src="https://images.unsplash.com/photo-1624526267942-8395f564e432?w=300" class="player-image">
                     <div class="player-name">Joe Root</div>
-                    <div class="player-role">Batsman • England</div>
+                    <div class="player-role">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Batsman</div>
                 </div>
                 <div class="player-card" onclick="location.href='players.html'">
                     <img src="https://images.unsplash.com/photo-1624526267942-8395f564e432?w=300" class="player-image">
                     <div class="player-name">Jasprit Bumrah</div>
-                    <div class="player-role">Bowler • India</div>
+                    <div class="player-role">🇮🇳 Bowler</div>
                 </div>
             </div>
             <a href="players.html" class="view-all-link">View All Players →</a>
@@ -295,18 +599,18 @@
             <h2 class="section-title">Ongoing Series</h2>
             <div class="series-grid">
                 <div class="series-card" onclick="location.href='series.html'">
-                    <h3>Border-Gavaskar Trophy</h3>
-                    <span class="series-type">Test Series</span>
-                    <div>India vs Australia • 4 Matches</div>
+                    <h3>🏆 Border-Gavaskar Trophy</h3>
+                    <span class="match-type">Test Series</span>
+                    <div>🇮🇳 India vs 🇦🇺 Australia</div>
                 </div>
                 <div class="series-card" onclick="location.href='series.html'">
-                    <h3>Asia Cup 2024</h3>
-                    <span class="series-type">ODI Tournament</span>
+                    <h3>🏆 Asia Cup 2024</h3>
+                    <span class="match-type">ODI Tournament</span>
                     <div>6 Teams • 13 Matches</div>
                 </div>
                 <div class="series-card" onclick="location.href='series.html'">
-                    <h3>IPL 2026</h3>
-                    <span class="series-type">T20 League</span>
+                    <h3>🏆 IPL 2026</h3>
+                    <span class="match-type">T20 League</span>
                     <div>10 Teams • 74 Matches</div>
                 </div>
             </div>
@@ -324,11 +628,19 @@
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Quick Links</h4>
-                        <ul><li><a href="index.html">Home</a></li><li><a href="live-scores.html">Live Scores</a></li><li><a href="matches.html">Matches</a></li></ul>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="live-scores.html">Live Scores</a></li>
+                            <li><a href="matches.html">Matches</a></li>
+                        </ul>
                     </div>
                     <div class="footer-column">
                         <h4>More</h4>
-                        <ul><li><a href="players.html">Players</a></li><li><a href="series.html">Series</a></li><li><a href="points-table.html">Points Table</a></li></ul>
+                        <ul>
+                            <li><a href="players.html">Players</a></li>
+                            <li><a href="series.html">Series</a></li>
+                            <li><a href="points-table.html">Points Table</a></li>
+                        </ul>
                     </div>
                     <div class="footer-column">
                         <h4>Follow Us</h4>
