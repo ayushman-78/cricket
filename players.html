@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cricketing Shots - Cricket News</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .news-card-large { background: var(--secondary-black); border-radius: var(--border-radius); overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.3); cursor: pointer; transition: var(--transition); }
+        .news-card-large:hover { transform: translateY(-5px); border-color: var(--premium-gold); }
+        .news-image-large { width: 100%; height: 200px; object-fit: cover; }
+        .news-content-large { padding: 20px; }
+        .news-category { color: var(--premium-gold); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 8px; }
+        .news-title { font-size: 1.2rem; color: var(--text-light); margin-bottom: 10px; }
+        .trending-tag { background: rgba(212, 175, 55, 0.2); padding: 5px 10px; border-radius: 20px; font-size: 0.7rem; display: inline-block; margin-top: 10px; }
+        .news-grid-full { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 30px; margin: 30px 0; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo"><div class="logo-img"><i class="fas fa-cricket"></i></div><h1>The Cricketing <span>Shots</span></h1></div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li><li><a href="live-scores.html">Live Scores</a></li><li><a href="matches.html">Matches</a></li>
+                    <li><a href="players.html">Players</a></li><li><a href="series.html">Series</a></li><li><a href="points-table.html">Points Table</a></li>
+                    <li><a href="news.html" class="active">News</a></li><li><a href="about.html">About</a></li>
+                </ul>
+                <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header"><div class="container"><h1><i class="fas fa-newspaper"></i> Cricket News</h1><p>Latest updates, match reports, and exclusive stories</p></div></div>
+
+    <div class="container">
+        <div class="news-grid-full">
+            <div class="news-card-large" onclick="alert('Full article coming soon')">
+                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=400" class="news-image-large">
+                <div class="news-content-large"><div class="news-category"><i class="fas fa-star"></i> BREAKING</div>
+                <div class="news-title">India Announces Squad for Champions Trophy 2025</div>
+                <div class="news-meta"><span><i class="far fa-clock"></i> 2 hours ago</span><span><i class="far fa-comment"></i> 245 comments</span></div>
+                <div class="trending-tag">#TeamIndia</div></div>
+            </div>
+            <div class="news-card-large" onclick="alert('Full article coming soon')">
+                <img src="https://images.unsplash.com/photo-1624526267942-8395f564e432?w=400" class="news-image-large">
+                <div class="news-content-large"><div class="news-category">MATCH REPORT</div>
+                <div class="news-title">Kohli Returns to Form with Spectacular Century</div>
+                <div class="news-meta"><span><i class="far fa-clock"></i> 5 hours ago</span><span><i class="far fa-comment"></i> 892 comments</span></div>
+                <div class="trending-tag">#KingKohli</div></div>
+            </div>
+            <div class="news-card-large" onclick="alert('Full article coming soon')">
+                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400" class="news-image-large">
+                <div class="news-content-large"><div class="news-category">IPL 2026</div>
+                <div class="news-title">IPL 2026 Auction Date Announced</div>
+                <div class="news-meta"><span><i class="far fa-clock"></i> 1 day ago</span><span><i class="far fa-comment"></i> 567 comments</span></div>
+                <div class="trending-tag">#IPLAuction</div></div>
+            </div>
+            <div class="news-card-large" onclick="alert('Full article coming soon')">
+                <img src="https://images.unsplash.com/photo-1624526267942-8395f564e432?w=400" class="news-image-large">
+                <div class="news-content-large"><div class="news-category">ICC</div>
+                <div class="news-title">Bumrah Named ICC Player of the Month</div>
+                <div class="news-meta"><span><i class="far fa-clock"></i> 2 days ago</span><span><i class="far fa-comment"></i> 423 comments</span></div>
+                <div class="trending-tag">#BoomBoomBumrah</div></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container"><div class="footer-content"><div class="footer-logo"><div class="footer-logo-img"><i class="fas fa-cricket"></i></div><p>Where Every Shot Tells a Story</p></div>
+        <div class="footer-links"><div class="footer-column"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="news.html">News</a></li></ul></div>
+        <div class="footer-column"><h4>Follow Us</h4><div class="social-links"><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div></div></div>
+        <div class="footer-bottom"><p>&copy; 2026 The Cricketing Shots. All rights reserved.</p></div></div>
+    </footer>
+
+    <script>function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cricketing Shots - Players & Stats</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .player-stats { display: flex; gap: 15px; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(212, 175, 55, 0.2); }
+        .stat-box { flex: 1; text-align: center; }
+        .stat-value { font-size: 1.2rem; font-weight: 700; color: var(--premium-gold); }
+        .stat-label { font-size: 0.7rem; color: var(--text-dim); }
+        .search-bar { margin: 30px 0; display: flex; gap: 15px; flex-wrap: wrap; }
+        .search-input { flex: 1; padding: 12px 20px; background: var(--secondary-black); border: 1px solid var(--premium-gold); border-radius: 40px; color: white; }
+        .filter-btn { padding: 12px 25px; background: var(--secondary-black); border: 1px solid var(--premium-gold); color: var(--premium-gold); border-radius: 40px; cursor: pointer; }
+        .filter-btn.active { background: var(--gold-gradient); color: var(--pure-black); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo"><div class="logo-img"><i class="fas fa-cricket"></i></div><h1>The Cricketing <span>Shots</span></h1></div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li><li><a href="live-scores.html">Live Scores</a></li><li><a href="matches.html">Matches</a></li>
+                    <li><a href="players.html" class="active">Players</a></li><li><a href="series.html">Series</a></li><li><a href="points-table.html">Points Table</a></li>
+                    <li><a href="news.html">News</a></li><li><a href="about.html">About</a></li>
+                </ul>
+                <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header"><div class="container"><h1><i class="fas fa-user"></i> Players & Statistics</h1><p>Complete player profiles, career stats, and rankings</p></div></div>
+
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search players by name..." id="searchInput">
+            <button class="filter-btn active" onclick="filterPlayers('all')">All</button>
+            <button class="filter-btn" onclick="filterPlayers('batsman')">Batsmen</button>
+            <button class="filter-btn" onclick="filterPlayers('bowler')">Bowlers</button>
+        </div>
+
+        <div class="players-grid" id="playersContainer">
+            <div class="player-card" data-role="batsman" data-name="Virat Kohli">
+                <img src="https://images.unsplash.com/photo-1624526267942-8395f564e432?w=300" class="player-image"><div class="player-name">Virat Kohli</div>
+                <div class="player-role">Batsman • India</div>
+                <div class="player-stats"><div class="stat-box"><div class="stat-value">25,000+</div><div class="stat-label">Runs</div></div><div class="stat-box"><div class="stat-value">70</div><div class="stat-label">100s</div></div><div class="stat-box"><div class="stat-value">53.5</div><div class="stat-label">Avg</div></div></div>
+            </div>
+            <div class="player-card" data-role="bowler" data-name="Pat Cummins">
+                <img src="https://images.unsplash.com/photo-1624526267942-8395f564e432?w=300" class="player-image"><div class="player-name">Pat Cummins</div>
+                <div class="player-role">Bowler • Australia</div>
+                <div class="player-stats"><div class="stat-box"><div class="stat-value">450+</div><div class="stat-label">Wickets</div></div><div class="stat-box"><div class="stat-value">25.4</div><div class="stat-label">Avg</div></div><div class="stat-box"><div class="stat-value">6/23</div><div class="stat-label">Best</div></div></div>
+            </div>
+            <div class="player-card" data-role="batsman" data-name="Joe Root">
+                <img src="https://images.unsplash.com/photo-1624526267942-8395f564e432?w=300" class="player-image"><div class="player-name">Joe Root</div>
+                <div class="player-role">Batsman • England</div>
+                <div class="player-stats"><div class="stat-box"><div class="stat-value">22,000+</div><div class="stat-label">Runs</div></div><div class="stat-box"><div class="stat-value">55</div><div class="stat-label">100s</div></div><div class="stat-box"><div class="stat-value">51.2</div><div class="stat-label">Avg</div></div></div>
+            </div>
+            <div class="player-card" data-role="bowler" data-name="Jasprit Bumrah">
+                <img src="https://images.unsplash.com/photo-1624526267942-8395f564e432?w=300" class="player-image"><div class="player-name">Jasprit Bumrah</div>
+                <div class="player-role">Bowler • India</div>
+                <div class="player-stats"><div class="stat-box"><div class="stat-value">350+</div><div class="stat-label">Wickets</div></div><div class="stat-box"><div class="stat-value">21.1</div><div class="stat-label">Avg</div></div><div class="stat-box"><div class="stat-value">5/27</div><div class="stat-label">Best</div></div></div>
+            </div>
+            <div class="player-card" data-role="batsman" data-name="Babar Azam">
+                <img src="https://images.unsplash.com/photo-1624526267942-8395f564e432?w=300" class="player-image"><div class="player-name">Babar Azam</div>
+                <div class="player-role">Batsman • Pakistan</div>
+                <div class="player-stats"><div class="stat-box"><div class="stat-value">15,000+</div><div class="stat-label">Runs</div></div><div class="stat-box"><div class="stat-value">35</div><div class="stat-label">100s</div></div><div class="stat-box"><div class="stat-value">54.8</div><div class="stat-label">Avg</div></div></div>
+            </div>
+        </div>
+
+        <h2 class="section-title">ICC Rankings</h2>
+        <div class="two-column">
+            <div class="points-container"><h3 style="padding:15px;color:var(--premium-gold);">Batting Rankings</h3>
+                <table class="points-table"><thead><tr><th>Rank</th><th>Player</th><th>Rating</th></tr></thead>
+                <tbody><tr><td>1</td><td>Virat Kohli</td><td>870</td></tr><tr><td>2</td><td>Babar Azam</td><td>855</td></tr><tr><td>3</td><td>Kane Williamson</td><td>840</td></tr></tbody></table></div>
+            <div class="points-container"><h3 style="padding:15px;color:var(--premium-gold);">Bowling Rankings</h3>
+                <table class="points-table"><thead><tr><th>Rank</th><th>Player</th><th>Rating</th></tr></thead>
+                <tbody><tr><td>1</td><td>Pat Cummins</td><td>880</td></tr><tr><td>2</td><td>Jasprit Bumrah</td><td>865</td></tr><tr><td>3</td><td>Rashid Khan</td><td>850</td></tr></tbody></table></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container"><div class="footer-content"><div class="footer-logo"><div class="footer-logo-img"><i class="fas fa-cricket"></i></div><p>Where Every Shot Tells a Story</p></div>
+        <div class="footer-links"><div class="footer-column"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="players.html">Players</a></li></ul></div>
+        <div class="footer-column"><h4>Follow Us</h4><div class="social-links"><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div></div></div>
+        <div class="footer-bottom"><p>&copy; 2026 The Cricketing Shots. All rights reserved.</p></div></div>
+    </footer>
+
+    <script>
+        function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
+        function filterPlayers(role){
+            const players=document.querySelectorAll('.player-card');
+            players.forEach(p=>{p.style.display=(role==='all'||p.dataset.role===role)?'block':'none';});
+            document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        document.getElementById('searchInput').addEventListener('input',function(e){
+            const term=e.target.value.toLowerCase();
+            document.querySelectorAll('.player-card').forEach(p=>{
+                p.style.display=p.dataset.name.toLowerCase().includes(term)?'block':'none';
+            });
+        });
+    </script>
+</body>
+</html>

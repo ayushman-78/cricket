@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cricketing Shots - Points Table & Rankings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .tournament-selector { margin: 30px 0; display: flex; gap: 15px; flex-wrap: wrap; }
+        .tournament-btn { padding: 12px 25px; background: var(--secondary-black); border: 1px solid var(--premium-gold); color: var(--premium-gold); border-radius: 40px; cursor: pointer; }
+        .tournament-btn.active { background: var(--gold-gradient); color: var(--pure-black); }
+        .rankings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0; }
+        .ranking-card { background: var(--secondary-black); border-radius: var(--border-radius); padding: 25px; border: 1px solid rgba(212, 175, 55, 0.3); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo"><div class="logo-img"><i class="fas fa-cricket"></i></div><h1>The Cricketing <span>Shots</span></h1></div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li><li><a href="live-scores.html">Live Scores</a></li><li><a href="matches.html">Matches</a></li>
+                    <li><a href="players.html">Players</a></li><li><a href="series.html">Series</a></li><li><a href="points-table.html" class="active">Points Table</a></li>
+                    <li><a href="news.html">News</a></li><li><a href="about.html">About</a></li>
+                </ul>
+                <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header"><div class="container"><h1><i class="fas fa-chart-line"></i> Points Table & Rankings</h1><p>ICC Rankings, tournament standings, and team statistics</p></div></div>
+
+    <div class="container">
+        <div class="tournament-selector">
+            <button class="tournament-btn active" onclick="showTournament('worldcup')">World Cup 2026</button>
+            <button class="tournament-btn" onclick="showTournament('ipl')">IPL 2026</button>
+            <button class="tournament-btn" onclick="showTournament('asia')">Asia Cup</button>
+        </div>
+
+        <div id="worldcupTable"><div class="points-container"><table class="points-table"><thead><tr><th>Pos</th><th>Team</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr></thead>
+        <tbody><tr><td>1</td><td><strong>India</strong></td><td>5</td><td>5</td><td>0</td><td>10</td><td>+2.345</td></tr>
+        <tr><td>2</td><td><strong>Australia</strong></td><td>5</td><td>4</td><td>1</td><td>8</td><td>+1.234</td></tr>
+        <tr><td>3</td><td><strong>England</strong></td><td>5</td><td>3</td><td>2</td><td>6</td><td>+0.567</td></tr>
+        <tr><td>4</td><td><strong>New Zealand</strong></td><td>5</td><td>2</td><td>3</td><td>4</td><td>-0.123</td></tr>
+        <tr><td>5</td><td><strong>South Africa</strong></td><td>5</td><td>1</td><td>4</td><td>2</td><td>-1.234</td></tr></tbody></table></div></div>
+
+        <div id="iplTable" style="display:none;"><div class="points-container"><table class="points-table"><thead><tr><th>Pos</th><th>Team</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr></thead>
+        <tbody><tr><td>1</td><td>CSK</td><td>8</td><td>6</td><td>2</td><td>12</td><td>+1.456</td></tr>
+        <tr><td>2</td><td>MI</td><td>8</td><td>5</td><td>3</td><td>10</td><td>+0.987</td></tr>
+        <tr><td>3</td><td>RCB</td><td>8</td><td>5</td><td>3</td><td>10</td><td>+0.654</td></tr>
+        <tr><td>4</td><td>GT</td><td>8</td><td>4</td><td>4</td><td>8</td><td>-0.123</td></tr></tbody></table></div></div>
+
+        <div id="asiaTable" style="display:none;"><div class="points-container"><table class="points-table"><thead><tr><th>Pos</th><th>Team</th><th>P</th><th>W</th><th>L</th><th>Pts</th><th>NRR</th></tr></thead>
+        <tbody><tr><td>1</td><td>India</td><td>3</td><td>3</td><td>0</td><td>6</td><td>+2.345</td></tr>
+        <tr><td>2</td><td>Sri Lanka</td><td>3</td><td>2</td><td>1</td><td>4</td><td>+0.456</td></tr>
+        <tr><td>3</td><td>Pakistan</td><td>3</td><td>1</td><td>2</td><td>2</td><td>-0.123</td></tr></tbody></table></div></div>
+
+        <div class="rankings-grid">
+            <div class="ranking-card"><h3 style="color:var(--premium-gold);">🏏 ICC Test Rankings</h3><table class="points-table"><thead><tr><th>Rank</th><th>Team</th><th>Rating</th></tr></thead><tbody><tr><td>1</td><td>Australia</td><td>124</td></tr><tr><td>2</td><td>India</td><td>121</td></tr><tr><td>3</td><td>England</td><td>115</td></tr></tbody></table></div>
+            <div class="ranking-card"><h3 style="color:var(--premium-gold);">🏏 ICC ODI Rankings</h3><table class="points-table"><thead><tr><th>Rank</th><th>Team</th><th>Rating</th></tr></thead><tbody><tr><td>1</td><td>India</td><td>118</td></tr><tr><td>2</td><td>Australia</td><td>115</td></tr><tr><td>3</td><td>Pakistan</td><td>112</td></tr></tbody></table></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container"><div class="footer-content"><div class="footer-logo"><div class="footer-logo-img"><i class="fas fa-cricket"></i></div><p>Where Every Shot Tells a Story</p></div>
+        <div class="footer-links"><div class="footer-column"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="points-table.html">Points Table</a></li></ul></div>
+        <div class="footer-column"><h4>Follow Us</h4><div class="social-links"><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div></div></div>
+        <div class="footer-bottom"><p>&copy; 2026 The Cricketing Shots. All rights reserved.</p></div></div>
+    </footer>
+
+    <script>
+        function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}
+        function showTournament(t){
+            document.getElementById('worldcupTable').style.display=t==='worldcup'?'block':'none';
+            document.getElementById('iplTable').style.display=t==='ipl'?'block':'none';
+            document.getElementById('asiaTable').style.display=t==='asia'?'block':'none';
+            document.querySelectorAll('.tournament-btn').forEach(b=>b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

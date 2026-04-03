@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cricketing Shots - Cricket Series</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .series-status { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; margin-top: 10px; }
+        .status-ongoing { background: #4CAF50; color: white; }
+        .status-upcoming { background: #FFC107; color: black; }
+        .match-schedule { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(212, 175, 55, 0.2); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo"><div class="logo-img"><i class="fas fa-cricket"></i></div><h1>The Cricketing <span>Shots</span></h1></div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li><li><a href="live-scores.html">Live Scores</a></li><li><a href="matches.html">Matches</a></li>
+                    <li><a href="players.html">Players</a></li><li><a href="series.html" class="active">Series</a></li><li><a href="points-table.html">Points Table</a></li>
+                    <li><a href="news.html">News</a></li><li><a href="about.html">About</a></li>
+                </ul>
+                <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header"><div class="container"><h1><i class="fas fa-trophy"></i> Cricket Series</h1><p>Ongoing and upcoming international & domestic series</p></div></div>
+
+    <div class="container">
+        <div class="series-grid">
+            <div class="series-card"><h3>🏆 Border-Gavaskar Trophy</h3><span class="series-type">Test Series</span><div>India vs Australia • 4 Test Matches</div><span class="series-status status-ongoing">🟢 LIVE NOW</span><div class="match-schedule">Current Match: India lead by 56 runs • Day 3</div></div>
+            <div class="series-card"><h3>🏆 Asia Cup 2026</h3><span class="series-type">ODI Tournament</span><div>India, Pakistan, Sri Lanka, Bangladesh, Afghanistan, Nepal</div><span class="series-status status-ongoing">🟢 LIVE NOW</span><div class="match-schedule">Final: India vs Sri Lanka • Tomorrow 2:00 PM</div></div>
+            <div class="series-card"><h3>🏆 IPL 2026</h3><span class="series-type">T20 League</span><div>10 Teams • 74 Matches</div><span class="series-status status-upcoming">📅 Starting Mar 20</span><div class="match-schedule">Opening Match: CSK vs MI • Wankhede Stadium</div></div>
+            <div class="series-card"><h3>🏆 England vs South Africa</h3><span class="series-type">T20I Series</span><div>3 T20 Matches</div><span class="series-status status-ongoing">🟢 LIVE NOW</span><div class="match-schedule">Match 2: England lead 1-0 • Next in 2 days</div></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container"><div class="footer-content"><div class="footer-logo"><div class="footer-logo-img"><i class="fas fa-cricket"></i></div><p>Where Every Shot Tells a Story</p></div>
+        <div class="footer-links"><div class="footer-column"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="series.html">Series</a></li></ul></div>
+        <div class="footer-column"><h4>Follow Us</h4><div class="social-links"><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div></div></div>
+        <div class="footer-bottom"><p>&copy; 2026 The Cricketing Shots. All rights reserved.</p></div></div>
+    </footer>
+
+    <script>function toggleMenu(){document.getElementById('navMenu').classList.toggle('active');}</script>
+</body>
+</html>
